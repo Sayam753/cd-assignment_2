@@ -1,0 +1,3 @@
+S=E
+E=aZ
+Z=~/+EZ/xEZ
