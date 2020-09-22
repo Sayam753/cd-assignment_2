@@ -420,8 +420,8 @@ void createLLTable(map<char, vector<char>> firstSet, map<char, vector<char>> fol
                 }
                 else
                 {
-
                     cout << "The given grammar is not LL(1) grammar" << endl;
+                    cout << "LL1 parsing failed because of conflict with production: " << it->first << "=" << setChar[i] << endl;
                     return;
                 }
             }
@@ -716,10 +716,6 @@ int main()
     map<char, vector<char>> firstSet, followSet;
     unordered_map<char, int> nullSet;
     map<char, vector<string>> cfg, purecfg;
-
-    string inpfile;
-
-    cout << "Original Grammar : " << endl;
 
     int index = 0;
     for (vector<Production>::iterator it = all_productions.begin(); it != all_productions.end(); ++it)
