@@ -46,30 +46,20 @@ void do_left_factoring(vector<Production> &all_productions)
         if ((*it).is_left_refactored == 0)
         {
             // Check if EPSILON is there
-            int is_epsilon = 0;
-            if (find((*it).productions.begin(), (*it).productions.end(), "EPSILON") != (*it).productions.end())
-            {
-                is_epsilon = 1;
-            }
-            if ((*it).productions.size() == 1 && is_epsilon == 1)
+            if ((*it).productions.size() == 1)
             {
                 (*it).is_left_refactored = true;
                 continue;
             }
-            else if (is_epsilon == 1)
-            {
-                (*it).productions.erase(remove((*it).productions.begin(), (*it).productions.end(), "EPSILON"), (*it).productions.end());
-                (*it).productions.push_back("EPSILON");
-            }
 
             // Finding common slices
-            sort((*it).productions.begin(), (*it).productions.end() - is_epsilon);
+            sort((*it).productions.begin(), (*it).productions.end());
             int production_size = (*it).productions.size();
             vector<pair<int, int> > common_section_slices;
-            for (int index = 0; index < production_size - is_epsilon; index++)
+            for (int index = 0; index < production_size; index++)
             {
                 int go_ahead = index;
-                while (go_ahead < production_size - is_epsilon)
+                while (go_ahead < production_size)
                 {
                     if ((*it).productions[index][0] == (*it).productions[go_ahead][0])
                         go_ahead++;
@@ -112,7 +102,7 @@ void do_left_factoring(vector<Production> &all_productions)
                 {
                     string new_names;
                     if (index == (*split_prod).size()) //  Fully exhausted
-                        new_names = "EPSILON";
+                        new_names = "#";
                     else
                         new_names = (*split_prod).substr(index, (*split_prod).size());
                     variable_prime.productions.push_back(new_names);
@@ -241,7 +231,7 @@ int main()
                 string new_prod = (*pr) + variable_prime.variable;
                 variable_prime.productions.push_back(new_prod);
             }
-            variable_prime.productions.push_back("EPSILON");
+            variable_prime.productions.push_back("#");
             new_productions.push_back(variable_prime);
         }
     }

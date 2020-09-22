@@ -1,1 +1,1 @@
-S -> aSSbS | aSaSb | ac | d | bBc | bBCC
+S -> aSSbS | aSaSb | a | d | bBc | bBCC

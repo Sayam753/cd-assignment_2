@@ -14,7 +14,7 @@ int main()
     a.push_back("nonu");
     a.push_back("sayam");
     a.push_back("dev");
-    a.push_back("devnagar");
+    a.push_back("#");
     a.push_back("sonam");
     a.push_back("yami");
     sort(a.begin(), a.end());
