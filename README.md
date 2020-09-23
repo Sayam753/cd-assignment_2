@@ -1,7 +1,9 @@
 # Group 23 Compiler Design Assignment
 
 Feed in any CFG and check whether it is LL1 or not.
+
 Epsilon Symbol ~
+
 Dollar Symbol =
 
 ```
