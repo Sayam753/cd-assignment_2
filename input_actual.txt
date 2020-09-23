@@ -1,5 +1,0 @@
-S=A
-A=aZ
-B=bY
-Z=~/BdZ/aZ
-Y=~/eY

@@ -1,6 +1,0 @@
-S=E
-E=TZ
-T=FY
-F=b
-Z=~/+TZ
-Y=~/xFY
